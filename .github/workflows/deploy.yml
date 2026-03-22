@@ -26,12 +26,12 @@ jobs:
       # 3. Build e Push de TODAS as imagens de produção
       - name: Build and Push Multi-Images
         run: |
-          docker build -t trogist/multi-client ./client
-          docker build -t trogist/multi-server ./server
-          docker build -t trogist/multi-worker ./worker
-          docker build -t trogist/multi-nginx ./nginx
+          docker build -t trogistdev/multi-client ./client
+          docker build -t trogistdev/multi-server ./server
+          docker build -t trogistdev/multi-worker ./worker
+          docker build -t trogistdev/multi-nginx ./nginx
           
-          docker push trogist/multi-client
-          docker push trogist/multi-server
-          docker push trogist/multi-worker
-          docker push trogist/multi-nginx
+          docker push trogistdev/multi-client
+          docker push trogistdev/multi-server
+          docker push trogistdev/multi-worker
+          docker push trogistdev/multi-nginx
