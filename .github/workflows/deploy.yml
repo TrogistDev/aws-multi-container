@@ -1,7 +1,7 @@
 name: CI Multi-Container
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   build-and-test:
