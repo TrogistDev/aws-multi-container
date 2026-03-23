@@ -1,13 +1,17 @@
-version: "3"
+version: "3.8" # Versão moderna
 services:
   client:
     image: "trogistdev/multi-client"
-    mem_limit: 128m
-    hostname: client
+    deploy:
+      resources:
+        limits:
+          memory: 128M
   server:
     image: "trogistdev/multi-server"
-    mem_limit: 128m
-    hostname: api
+    deploy:
+      resources:
+        limits:
+          memory: 128M
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
@@ -18,14 +22,21 @@ services:
       - PGPORT=$PGPORT
   worker:
     image: "trogistdev/multi-worker"
-    mem_limit: 128m
-    hostname: worker
+    deploy:
+      resources:
+        limits:
+          memory: 128M
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
   nginx:
     image: "trogistdev/multi-nginx"
-    mem_limit: 128m
-    hostname: nginx
+    deploy:
+      resources:
+        limits:
+          memory: 128M
     ports:
-      - "80:80"
+      - "80:80" # O Beanstalk vai ligar o tráfego externo aqui
+    depends_on:
+      - client
+      - server
