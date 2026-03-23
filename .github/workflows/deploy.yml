@@ -51,3 +51,7 @@ jobs:
           region: eu-north-1                      # Sua região (ex: us-east-1)
           version_label: ${{ github.sha }}       # Usa o ID do commit como versão
           deployment_package: deploy.zip
+
+
+
+          
