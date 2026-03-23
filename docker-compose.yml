@@ -6,7 +6,7 @@ services:
       resources:
         limits:
           memory: 128M
-  server:
+  api:
     image: "trogistdev/multi-server"
     deploy:
       resources:
@@ -39,4 +39,4 @@ services:
       - "80:80" # O Beanstalk vai ligar o tráfego externo aqui
     depends_on:
       - client
-      - server
+      - api
